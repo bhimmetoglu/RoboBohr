@@ -9,10 +9,10 @@ RoboBohr currently has 4 modes of operation:
 3. cluster: Creates job submission files for submitting the pwscf input files in an HPC environment. Torque and Slurm scheduling systems are supported.
 4. outcomes: Analyzes and output files generated from pwscf runs and stores relevant outcome quantities (e.g. ground state energies) and creates a log file.
 
-## Data
+### Data
 
 The sdf data files can be downloaded from the [PubChem database](https://pubchem.ncbi.nlm.nih.gov/).  
 
-## Analysis
+### Analysis
 
 The main part of RoboBohr is written in Python with extensions written in C (wrapped using [Cython](http://cython.org/)). The data analsysis, visualization and training of learning algorithms are performed by R scripts included in the repo.
