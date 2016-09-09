@@ -34,6 +34,39 @@ class featureMatrix:
   def __init__ (self, molecule):
     self.molecule = molecule
 
+  def indexAtoms(self,masses):
+    """ Shift atoms to center of mass coordinates, then reorder; 
+        Atoms closest to center of mass has index 0, etc
+    """
+    # Get the molecular structure
+    elements = self.molecule.names # Names of elements
+    pos = np.array(self.molecule.positions, dtype = float) # Atomic positions  
+    typ = Counter(elements).keys() # Atomic types, i.e. unique names
+    ntype = len(typ) # Number of distinct types  
+    natoms = len(elements) # Total number of atoms in the molecule
+
+    # Match masses
+    m = []
+    for iat in range(natoms):
+      elementIndex = elementList.index(elements[iat])
+      m.append(masses[elementIndex])
+
+    # Center of mass coordinates
+    m = np.array(m, dtype = float)
+    rCm = np.dot(m, pos) / np.sum(m)
+
+    # Shift coordinates by rCm
+    pos += -rCm
+
+    # Distances to cm
+    distCm = np.apply_along_axis(np.linalg.norm,1,pos)
+    increasingOrder = np.argsort(distCm)
+
+    # Reorder the molecule with increasing order and cm shifted positions
+    elements = np.array(elements)
+    self.molecule.names = elements[increasingOrder]
+    self.molecule.positions = pos[increasingOrder,:]
+
   def coulombMatrix(self,elementList, ZList, Zpow = 2.4, eigenval = True, nrandom = 0):
     """ Construction of Coulomb Matrices (or eigenspectrum) """
 
@@ -77,7 +110,7 @@ class featureMatrix:
 
     elif (eigenval == False and nrandom != 0):
       # Initiate a new matrix for storage
-      CMr = np.zeros((nrandom,natoms,natoms))
+      CMr = np.zeros((natoms,natoms,nrandom))
       # Compute norm of rows
       Cn = np.apply_along_axis(np.linalg.norm, 1, CM)
       for ir in range(nrandom):
@@ -86,7 +119,7 @@ class featureMatrix:
         Ctemp = Cn + eps
         # Pertumation
         P = Ctemp.argsort()
-        CMr[ir,:,:] = (CM[:,P])[P,:]
+        CMr[:,:,ir] = (CM[:,P])[P,:]
       # Return CMr
       return CMr
 

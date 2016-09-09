@@ -20,8 +20,8 @@ def storeFeatures(listOfMolecules, natMax = 50, eigenval = True, nrandom = 0):
     nTot = natMax * (natMax + 1)/2; iu = np.triu_indices(natMax) # Upper triangular part
     Xdata = np.zeros((numMolecules,nTot+1))
   else:
-    print "Not yet implemented!"
-    quit()
+    nTot = natMax * (natMax + 1)/2; iu = np.triu_indices(natMax) # Upper triangular part
+    Xdata = np.zeros((numMolecules*nrandom,nTot+1))
 
   # Loop over listOfMolecules
   for ind in range(numMolecules):
@@ -29,6 +29,8 @@ def storeFeatures(listOfMolecules, natMax = 50, eigenval = True, nrandom = 0):
     natoms = len(tempMolecule.names)
     # Create an instance of featureMatrix
     fM = featureMatrix(molecule = tempMolecule)
+    # Reorder atoms with respect to center of mass coordinates (if desired)
+    # fM.indexAtoms(masses)
     # Get the Coulomb Matrix
     CM = fM.coulombMatrix(elementList, ZList, Zpow = 2.4, eigenval = eigenval, nrandom = nrandom)
 
@@ -40,6 +42,13 @@ def storeFeatures(listOfMolecules, natMax = 50, eigenval = True, nrandom = 0):
       XTemp[:natoms,:natoms] = CM
       Xdata[ind,0] = tempMolecule.sid
       Xdata[ind,1:] = XTemp[iu] #Upper triangular part
+    if (eigenval == False and nrandom !=0):
+      XTemp = np.zeros((natMax,natMax))
+      for ir in range(nrandom):
+        ind_ir = ir + nrandom * ind
+        XTemp[:natoms,:natoms] = CM[:,:,ir]
+        Xdata[ind_ir,0] = tempMolecule.sid
+        Xdata[ind_ir,1:] = XTemp[iu] # Upper triangular part
 
   # Write features in file
   if (not os.path.exists(pathData)):

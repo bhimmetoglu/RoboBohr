@@ -1,7 +1,7 @@
 <img src="https://github.com/bhimmetoglu/RoboBohr/blob/master/roboLogo.png", width="250" height="200" />
 
 # RoboBohr
-RoboBohr is a machine learning framework for electronic structure prediction of molecules. 
+RoboBohr is a machine learning framework for predicting electronic structure of molecules. 
 RoboBohr currently has 4 modes of operation:
 
 1. *query*: Reads input sdf files and creates list of objects that contain types of atoms and coordinates for each entry in the sdf input. The list of these objects are then used to create input files for the pwscf code of the [Quantum Espresso] (http://www.quantum-espresso.org/) package.
