@@ -11,7 +11,7 @@ RoboBohr currently has 4 modes of operation:
 
 ### Data
 
-The sdf data files can be downloaded from the [PubChem database](https://pubchem.ncbi.nlm.nih.gov/). Specifically, the [FTP server] (ftp://ftp.ncbi.nlm.nih.gov/pubchem/Compound_3D/01_conf_per_cmpd/SDF/) has all the data in sdf file format. 
+The sdf data files can be downloaded from the [PubChem database](https://pubchem.ncbi.nlm.nih.gov/). Specifically, the [FTP server](ftp://ftp.ncbi.nlm.nih.gov/pubchem/Compound_3D/01_conf_per_cmpd/SDF/) has all the data in sdf file format. 
 
 ### Analysis
 
