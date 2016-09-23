@@ -18,3 +18,6 @@ There a sereval choices of features that are available. These include, pair-dist
 ### Analysis
 
 The main part of RoboBohr is written in Python with extensions written in C (wrapped using [Cython](http://cython.org/)). The data analsysis, visualization and training of learning algorithms are performed by R scripts included in the repo.
+
+### Article
+The preprint of the article explaining RoboBohr can be accessed from [here](http://arxiv.org/abs/1609.07124).
