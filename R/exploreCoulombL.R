@@ -8,7 +8,8 @@ library(ggplot2)
 library(data.table)
 
 # Working dir
-setwd("/home/burak/Works/RoboBohr/methodsVersion/")
+#setwd("/home/burak/Works/RoboBohr/methodsVersion/")
+setwd("/home/burak/Works/python/RoboBohr/methodsVersion/")
 
 ## Read the data
 # Outcomes first
@@ -51,10 +52,11 @@ inTrain <- sample(1:dim(combined)[1], size = floor(0.7*dim(combined)[1]), replac
 train.Y <- combined[inTrain, ]$Eat; test.Y <- combined[-inTrain, ]$Eat
 
 # Feature matrices
+Y <- combined$Eat
 combined[,Eat:=NULL] # No need for Eat 
 combined[,Id:=NULL] # No need for Id
 train.X <- combined[inTrain,]; test.X <- combined[-inTrain,]
-rm(combined,l.complete); gc()
+rm(l.complete); gc()
 
 # XGBoost style matrices
 library(xgboost)
@@ -83,3 +85,22 @@ pred <- predict(xgb.model, newdata = dtest.X)*scl
 
 # RMSE
 sqrt(mean((pred - test.Y)^2)) # 0.1309823
+
+# Visualization
+library(ggplot2)
+plotData <- data.frame(actual = test.Y, prediction = pred) %>% mutate(difference = actual - prediction)
+
+# Define limits for error histogram
+gg0 <- ggplot(plotData, aes(x=difference)) + theme(text = element_text(size=20)) + labs(x="difference (Ry)",y="Density") 
+gg0 <- gg0 + geom_histogram(aes(y = ..density.., fill = ..count..),binwidth = 0.05); gg0
+
+# Visualize the data using principal components analysis (PCA)
+# Get principal components
+combined <- as.data.frame(combined)
+pca <- prcomp(combined, center = TRUE)#, scale. = TRUE)
+
+# Plot 
+library(plot3D)
+plot3D::points2D(pca$x[,1], pca$x[,2], type = "p", colvar = -Y,
+                 xlab = expression("Z"[1]), ylab = expression("Z"[2]), 
+                 pch=19, cex.axis=1.0, cex.lab=1.0, clab = "|E| (Ry)")
