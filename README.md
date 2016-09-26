@@ -21,3 +21,4 @@ The main part of RoboBohr is written in Python with extensions written in C (wra
 
 ### Article
 The preprint of the article explaining RoboBohr can be accessed from [here](http://arxiv.org/abs/1609.07124).
+An illustration of results from RoboBohr and alaysis performed in R can be found in the [RPubs article](https://rpubs.com/burakh/robobohr)
