@@ -1,6 +1,6 @@
 ## Analysis of the GDB data
 
-In this folder, we provide the scripts for analyzing the GDB dataset of molecules used in Grégoire Montavon et al. New J. Phys. 15 095003 (2013).
+In this folder, we provide the scripts for analyzing the GDB dataset of molecules used in Montavon et al. New J. Phys. 15 095003 (2013).
 The data can be downloaded from the New Journal of Physics website as the [supplemental data](http://iopscience.iop.org/1367-2630/15/9/095003/media).
 
 The script readCoulomb.py reads the Coulomb matrices and the outcomes of DFT calculations and stores them in CSV format. 
