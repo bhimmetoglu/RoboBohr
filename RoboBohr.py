@@ -37,7 +37,7 @@ if ("query" in rBohrMode):
     # Create QE inputs
     scf = QEinput(molecule = tempMolecule)
     # Write into file
-    scf.scfInput(pathScfIn)
+    scf.scfInput(pathScfIn, foldPP = pathPP)
     # Amount to be subtracted for atomization energies:
     aEsub = scf.singleAtom()
     f.write(str(tempMolecule.sid) + " " + str(aEsub) + "\n")
