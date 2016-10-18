@@ -125,8 +125,8 @@ mv %(fOut)s ./results
 
     # Submit the job to the queue
     if (scheduler == "Torque"):
-      call(self.fSubName, shell = True)
+      call("qsub " + self.fSubName, shell = True)
     elif (scheduler == "Slurm"):
-      call(self.fSubName, shell = True)
+      call("sbatch " + self.fSubName, shell = True)
 
 
