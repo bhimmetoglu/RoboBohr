@@ -6,19 +6,18 @@
 import numpy as np
 import sys 
 import os
-from src.classes import *
-from src.generateQuery import *
-from src.generateQEinputs import *
-from src.generateData import *
-from src.generateOut import *
-from src.generateClusterJob import *
 from Constants import *
+pwd = os.path.dirname(os.path.realpath(__file__)) # Make sure to include in path 
+sys.path.append(pwd); sys.path.append(bohrDir)
+
+from classes import *
+from generateQuery import *
+from generateQEinputs import *
+from generateData import *
+from generateOut import *
+from generateClusterJob import *
 
 rBohrMode = sys.argv[1] # Read execution mode from stdin
-
-# Make sure that Constants.py is in the path
-pwd = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(pwd)
 
 if ("query" in rBohrMode):
   ## Initiate an instance of pubChemQuery

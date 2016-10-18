@@ -11,6 +11,7 @@ import numpy as np
 auToA = 0.529 # au is 0.529 A
 
 ## Paths to specific directories
+bohrDir = "/home/burak/NielsBohr/RoboBohr/src"
 sdfPath = "/home/burak/Works/RoboBohr/methodsVersion/sdf"
 pathScfIn = "/home/burak/Works/RoboBohr/methodsVersion/scf"
 pathOut = "/home/burak/Works/RoboBohr/methodsVersion/results"
