@@ -101,7 +101,7 @@ class queryScfOut:
     # Archive files 
     filnam = "results" + "." + str(self.startMolecule) + "_" + str(self.endMolecule) + ".tar.gz"
     tar = tarfile.open(filnam, "w:gz")
-    for fil in os.listdir(self.pathdOut):
+    for fil in os.listdir(self.pathOut):
       tar.add(fil)
     tar.close()
     shutil.copy2(filnam,destination) # Copy to desired destination
