@@ -11,11 +11,13 @@ import numpy as np
 auToA = 0.529 # au is 0.529 A
 
 ## Paths to specific directories
-bohrDir = "/home/burak/NielsBohr/RoboBohr/src"
-sdfPath = "/home/burak/Works/RoboBohr/methodsVersion/sdf"
-pathScfIn = "/home/burak/Works/RoboBohr/methodsVersion/scf"
-pathOut = "/home/burak/Works/RoboBohr/methodsVersion/results"
-pathData = "/home/burak/Works/RoboBohr/methodsVersion/data"
+bohrDir = "/home/burak/NielsBohr/RoboBohr/src" # Path to the location of RoboBohr
+sdfPath = "/home/burak/NielsBohr/sdf" # Path to the folder where sdf files are located
+
+# Data input/output
+pathScfIn = "/home/burak/NielsBohr/scf" # Location where scf.in files will be stored
+pathOut = "/home/burak/NielsBohr/results" # Location where scf.out files will be stores
+pathData = "/home/burak/NielsBohr/data" # Location where data will be written
 
 ## Parameters for RoboBohr 
 # Here is an example for studying CHNOPS
@@ -39,9 +41,11 @@ singleAtomEnergies = [  -0.917798,\
 ## Cluster settings
 nMolecules = 16273 
 scheduler = "Torque"; nodesize = 12; nodes=1; ppn=12; walltime="02:00:00"
-pathPP = "/home/burak/Works/RoboBohr/methodsVersion/work/pseudos" 
-pathPW = "/home/burak/Works/RoboBohr/methodsVersion/work" 
-pathWork = "/home/burak/Works/RoboBohr/methodsVersion/work"
+
+# Location of certain files
+pathPP = "/home/burak/pseudos" # Location of pseudopotentials 
+pathPW = "/home/burak/espresso/bin" # Location of pw.x  
+pathWork = "/home/burak/tempDir" # Location where calculations will be performed (could be a temp location in the cluster) 
 
 
 ## What type of features do you want?
