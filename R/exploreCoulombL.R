@@ -7,17 +7,13 @@ library(dplyr)
 library(ggplot2)
 library(data.table)
 
-# Working dir
-#setwd("/home/burak/Works/RoboBohr/methodsVersion/")
-setwd("/home/burak/Works/python/RoboBohr/methodsVersion/")
-
 ## Read the data
 # Outcomes first
-outcomes <- fread("./data/out.dat.0_16274", skip = 2, header = FALSE, colClasses = c("integer", "numeric"))
+outcomes <- fread("../data/out.dat.0_16274", skip = 2, header = FALSE, colClasses = c("integer", "numeric"))
 colnames(outcomes) <- c("Id", "E")
 
 # AESub (piece to subtract from outcomes to get Eat)
-AeSub <- fread("./data/AEsub.out", header = FALSE, colClasses = c("integer","numeric"))
+AeSub <- fread("../data/AEsub.out", header = FALSE, colClasses = c("integer","numeric"))
 colnames(AeSub) <- c("Id", "Esub")
 
 # Merge AeSub and outcomes; compute atomization energies
@@ -30,7 +26,7 @@ rm(outcomes,AeSub); gc()
 scl <- -max(abs(outcomesAe$Eat), na.rm = TRUE)
 
 # Read the Coulomb Matrix (eigenvalues)
-CoulombLambda <- fread("./data/coulombL.csv", header = FALSE)
+CoulombLambda <- fread("../data/coulombL.csv", header = FALSE)
 
 # Fix column names
 nam <- paste0('px', 1:(ncol(CoulombLambda)-1))
