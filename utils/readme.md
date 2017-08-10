@@ -95,14 +95,16 @@ This is a regression problem so mean squared error is minimized during training.
 [1] Halgren TA. Merck Molecular Force Field: I. Basis, Form, Scope,
     Parameterization and Performance of MMFF94.  J. Comp. Chem.
     1996;17:490-519.
+    
 [2] Halgren TA. Merck Molecular Force Field: VI. MMFF94s Option for
     Energy Minimization Studies.  J. Comp. Chem. 1999;20:720-729.
-[3] Kim, Sunghwan, Evan E Bolton, and Stephen H Bryant. “PubChem3D: Shape Compatibility Filtering Using Molecular Shape Quadrupoles.” 
-	J. Cheminf. 3 (2011): 25.
+    
+[3] Kim, Sunghwan, Evan E Bolton, and Stephen H Bryant. “PubChem3D: Shape Compatibility Filtering Using Molecular Shape Quadrupoles.” J. Cheminf. 3 (2011): 25.
+
 [4] Himmetoglu B.: Tree based machine learning framework for predicting ground state energies of molecules, J. Chem. Phys 145, 134101 (2016)
-[5] Rupp M., Ramakrishnan R., von Lilienfeld OA.: Machine Learning for Quantum Mechanical Properties of Atoms in Molecules, 
-	J. Phys. Chem. Lett. , 6(16): 3309–3313 (2015)
-[6] Montavon G., Rupp M., Gobre V., Vazquez-Mayagoitia A., Hansen K., Tkatchenko A., Müller K-R., von Lilienfeld OA.: Machine learning of molecular electronic
-	 properties in chemical compound space, New J. Phys., 15(9): 095003 (2013)
-[7] Hansen K., Montavon G., Biegler F., Fazli S., Rupp M., Scheffler M., von Lilienfeld OA., Tkatchenko A., Müller K-P.: Assessment and Validation of Machin
-	Learning Methods for Predicting Molecular Atomization Energies, J. Chem. Theory Comput. , 9(8): 3543–3556 (2013)
+
+[5] Rupp M., Ramakrishnan R., von Lilienfeld OA.: Machine Learning for Quantum Mechanical Properties of Atoms in Molecules, J. Phys. Chem. Lett. , 6(16): 3309–3313 (2015)
+	
+[6] Montavon G., Rupp M., Gobre V., Vazquez-Mayagoitia A., Hansen K., Tkatchenko A., Müller K-R., von Lilienfeld OA.: Machine learning of molecular electronic properties in chemical compound space, New J. Phys., 15(9): 095003 (2013)
+
+[7] Hansen K., Montavon G., Biegler F., Fazli S., Rupp M., Scheffler M., von Lilienfeld OA., Tkatchenko A., Müller K-P.: Assessment and Validation of Machine Learning Methods for Predicting Molecular Atomization Energies, J. Chem. Theory Comput. , 9(8): 3543–3556 (2013)
