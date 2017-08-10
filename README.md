@@ -13,6 +13,8 @@ The sdf data files can be downloaded from the [PubChem database](https://pubchem
 
 There a sereval choices of features that are available. These include, pair-distances and Coulomb matrices. The Coulomb matrix features allows random copies of the same molecule with re-shuffled indices as well as the eigenspectrum for feature matrix construction. 
 
+In the folder `utils` simple utilies are included to download the whole PubChem data and parse it into JSON. This allows feature engineering besides the Coulomb Matrix representation for future studies.
+
 ### Analysis
 
 The main part of RoboBohr is written in Python with extensions written in C (wrapped using [Cython](http://cython.org/)). The data analsysis, visualization and training of learning algorithms are performed by R scripts included in the repo.
