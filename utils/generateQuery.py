@@ -38,7 +38,8 @@ class molecule(object):
 
     return_dict['id'] = self.sid                           # Id
     return_dict['En'] = self.mmff94_en                     # Energy
-    return_dict['shapeM'] = self.shape_multipoles.tolist() # Shape multipoles 
+    return_dict['shapeM'] = self.shape_multipoles.tolist() # Shape multipoles
+    return_dict['self_overlap'] = self.self_overlap        # Self overlap 
       
     list_atoms = []                                         # Atoms
     for el in zip(self.names, self.positions):
@@ -302,7 +303,7 @@ def storeMolecules(listOfMolecules, natMax, start_index = 0, end_index = 1):
   df['En'] = data_mmff94
 
   # Save
-  path = "molecules_" + str(start_index) + "_" + str(end_index) + ".pkl"
+  path = "molecules_" + str(start_index) + "_" + str(end_index) + ".csv"
   df.to_csv(path)
 
   print("Done!\n")
